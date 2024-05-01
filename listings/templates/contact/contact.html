@@ -1,0 +1,16 @@
+
+{% extends 'base/base.html' %} <!-- on indique que nous voulons que ce gabarit hérite de notre gabarit de base-->
+
+{% block content %}
+
+    <p>Nous sommes là pour vous aider.</p>
+
+    <!-- notre action="" est vide, cela veut dire que les données seront renvoyés à cette meme page -->
+
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Envoyer">
+    </form>
+
+{% endblock %}

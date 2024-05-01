@@ -1,0 +1,16 @@
+
+{% extends 'base/base.html' %} <!-- on indique que nous voulons que ce gabarit hérite de notre gabarit de base-->
+
+{% block content %}
+
+
+    <h1>Page listing</h1>
+    <p>Mes listes préférés sont :</p>
+
+    <ul>
+        {% for listing in listings %}
+            <li>{{ listing.title }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

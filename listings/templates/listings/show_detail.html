@@ -1,0 +1,23 @@
+
+
+{% extends 'base/base.html' %} <!-- on indique que nous voulons que ce gabarit hérite de notre gabarit de base-->
+
+{% block content %}
+
+    <h2>{{ band.name }}</h2>
+
+    <ul>
+        <li>Genre : {{ band.get_genre_display }}</li>
+        <li>Année de formation : {{ band.year_formed }}</li>
+        <li>Actif : {{ band.active|yesno }}</li>
+
+        <!-- on affiche si il y a le lien vers le site du groupe -->
+        {% if band.official_homepage %}
+            <li><a href="{{ band.official_homepage }}">{{ band.official_homepage }}</a></li>
+        {% endif %}
+    </ul>
+
+    <p>{{ band.biography }}</p>
+
+
+{% endblock %}
