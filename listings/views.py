@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 from listings.models import Band, Listing # importe le model
-from listings.forms import ContactUsForm # importe le formulaire
+from listings.forms import ContactUsForm, BandForm # importe le formulaire
 from django.core.mail import send_mail # pour l'envoi de mail
 
 # Read
@@ -17,6 +17,16 @@ def show_details(request, id):
 
     band = Band.objects.get(id=id)
     return render(request, 'listings/show_detail.html', {'band': band}) # nous passons l'id au modèle
+
+
+def band_create(request):
+   form = BandForm()
+   return render(request,
+            'listings/band_create.html',
+            {'form': form})
+
+
+
 
 
 
